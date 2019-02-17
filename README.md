@@ -53,3 +53,7 @@ export default function App() {
   )
 }
 ```
+
+## Tests
+
+... are for the weak. PR is welcome.
