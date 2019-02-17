@@ -1,0 +1,44 @@
+{
+  "name": "redux-bundler-hook",
+  "version": "1.0.0",
+  "description": "React bindings to redux-bundler with hooks",
+  "main": "index.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abuinitski/redux-bundler-hook.git"
+  },
+  "keywords": [
+    "react",
+    "redux"
+  ],
+  "author": "Arseni Buinitski <arseni.buinitski@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abuinitski/redux-bundler-hook/issues"
+  },
+  "homepage": "https://github.com/abuinitski/redux-bundler-hook#readme",
+  "devDependencies": {
+    "microbundle": "^0.9.0",
+    "prettier": "^1.16.4"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "jsxSingleQuote": false,
+    "jsxBracketSameLine": false,
+    "arrowParens": "avoid"
+  },
+  "peerDependencies": {
+    "redux-bundler": "*",
+    "react": ">=16.8.0"
+  }
+}
