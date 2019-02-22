@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useMemo } from 'react'
+import { useContext, useEffect, useState, useMemo, useRef } from 'react'
 
 import ReduxBundlerContext from './ReduxBundlerContext'
 
@@ -9,13 +9,25 @@ export default function useConnect(...args) {
 
   const [state, setState] = useState(() => store.select(keysToWatch))
 
-  useEffect(
-    () =>
-      store.subscribeToSelectors(keysToWatch, changes => {
-        setState(currentState => ({ ...currentState, ...changes }))
-      }),
-    [keysToWatch]
-  )
+  const prevKeysToWatchRef = useRef(keysToWatch)
+
+  useEffect(() => {
+    if (prevKeysToWatchRef.current !== keysToWatch) {
+      prevKeysToWatchRef.current = keysToWatch
+      setState(store.select(keysToWatch))
+    }
+
+    return store.subscribeToSelectors(keysToWatch, changes => {
+      setState(currentState => ({ ...currentState, ...changes }))
+    })
+  }, [keysToWatch])
+
+  if (prevKeysToWatchRef.current !== keysToWatch) {
+    return {
+      ...actions,
+      ...store.select(keysToWatch)
+    }
+  }
 
   return {
     ...actions,
