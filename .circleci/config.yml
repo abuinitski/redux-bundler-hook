@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mhart/alpine-node:11
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      - run: apk add --update --no-cache make gcc g++ python git openssh
+      - run: npm install -g node-gyp --unsafe-perm
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm test
