@@ -1,6 +1,6 @@
 # Redux-Bundler Hook
 
-![](https://img.shields.io/npm/v/redux-bundler-hook.svg)![](https://img.shields.io/npm/dt/redux-bundler-hook.svg)
+![](https://img.shields.io/npm/v/redux-bundler-hook.svg) ![](https://img.shields.io/npm/dt/redux-bundler-hook.svg) [![CircleCI](https://circleci.com/gh/abuinitski/redux-bundler-hook/tree/master.svg?style=svg)](https://circleci.com/gh/abuinitski/redux-bundler-hook/tree/master)
 
 React.js bindings to Henrik Joreteg's [redux-bundler](https://github.com/HenrikJoreteg/redux).
 
