@@ -1,11 +1,13 @@
 {
   "name": "redux-bundler-hook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React bindings to redux-bundler with hooks",
   "main": "index.js",
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "prepublishOnly": "microbundle",
+    "dev": "microbundle watch",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,8 +24,16 @@
   },
   "homepage": "https://github.com/abuinitski/redux-bundler-hook#readme",
   "devDependencies": {
-    "microbundle": "^0.9.0",
-    "prettier": "^1.16.4"
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "microbundle": "^0.10.0",
+    "prettier": "^1.16.4",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-testing-library": "^5.9.0",
+    "redux-bundler": "^23.1.0"
   },
   "prettier": {
     "printWidth": 120,
