@@ -1,6 +1,6 @@
 # Redux-Bundler Hook
 
-![](https://img.shields.io/npm/v/redux-bundler-hook.svg)![](https://img.shields.io/npm/dt/:packageName.svg)
+![](https://img.shields.io/npm/v/redux-bundler-hook.svg)![](https://img.shields.io/npm/dt/redux-bundler-hook.svg)
 
 React.js bindings to Henrik Joreteg's [redux-bundler](https://github.com/HenrikJoreteg/redux).
 
@@ -53,7 +53,3 @@ export default function App() {
   )
 }
 ```
-
-## Tests
-
-... are for the weak. PR is welcome.
