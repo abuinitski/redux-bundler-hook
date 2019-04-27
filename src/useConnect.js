@@ -40,12 +40,12 @@ function cookArguments(store, args) {
   const actions = {}
 
   args.forEach(keyName => {
-    if (keyName.slice(0, 6) === 'select') {
+    if (keyName.startsWith('select')) {
       keysToWatch.push(keyName)
       return
     }
 
-    if (keyName.slice(0, 2) === 'do') {
+    if (keyName.startsWith('do')) {
       actions[keyName] = (...args) => {
         if (store.action) {
           return store.action(keyName, args)
