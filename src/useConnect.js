@@ -55,7 +55,7 @@ function cookArguments(store, args) {
       return
     }
 
-    throw Error(`Can Not Connect: ${keyName}`)
+    throw Error(`Cannot Connect: ${keyName}`)
   })
 
   return [keysToWatch, actions]
