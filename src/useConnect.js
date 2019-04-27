@@ -25,7 +25,7 @@ export default function useConnect(...args) {
   if (prevKeysToWatchRef.current !== keysToWatch) {
     return {
       ...actions,
-      ...store.select(keysToWatch)
+      ...store.select(keysToWatch),
     }
   }
 
