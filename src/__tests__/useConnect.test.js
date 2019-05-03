@@ -1,6 +1,5 @@
 import React from 'react'
 import { composeBundlesRaw } from 'redux-bundler'
-import { act } from 'react-testing-library'
 
 import initHookTest from '../__test_harness__/initHookTest'
 
@@ -42,7 +41,7 @@ describe('useConnect hook', () => {
   })
 
   test('reflects external changes in store', () => {
-    const { ref, store } = initUseConnectTest('selectItemOne', 'selectItemTwo')
+    const { ref, act, store } = initUseConnectTest('selectItemOne', 'selectItemTwo')
 
     expect(ref.current.itemOne).toBe('Item1')
 
@@ -53,7 +52,7 @@ describe('useConnect hook', () => {
   })
 
   test('allows to select actions', () => {
-    const { ref } = initUseConnectTest('selectItemOne', 'doChangeItemOne')
+    const { ref, act } = initUseConnectTest('selectItemOne', 'doChangeItemOne')
 
     act(() => {
       ref.current.doChangeItemOne('Item1-Changed')
@@ -62,7 +61,7 @@ describe('useConnect hook', () => {
   })
 
   test('does not re-render when not needed', () => {
-    const { ref } = initUseConnectTest('selectItemOne', 'doChangeItemOne', 'doChangeItemTwo')
+    const { ref, act } = initUseConnectTest('selectItemOne', 'doChangeItemOne', 'doChangeItemTwo')
     expect(ref.renderCount).toBe(1)
 
     act(() => {
@@ -77,7 +76,7 @@ describe('useConnect hook', () => {
   })
 
   test('it adapts when arguments change', () => {
-    const { ref, rerender } = initUseConnectTest('selectItemOne')
+    const { ref, act, rerender } = initUseConnectTest('selectItemOne')
 
     expect(ref.current.itemOne).not.toBeUndefined()
     expect(ref.current.itemTwo).toBeUndefined()
@@ -86,7 +85,6 @@ describe('useConnect hook', () => {
       rerender('selectItemTwo')
     })
 
-    console.log(ref.current)
     expect(ref.current.itemOne).toBeUndefined()
     expect(ref.current.itemTwo).not.toBeUndefined()
     expect(ref.renderCount).toBe(3) // can't avoid one extra re-render in this case

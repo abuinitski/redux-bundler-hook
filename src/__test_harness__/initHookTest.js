@@ -1,5 +1,5 @@
 import React from 'react'
-import { testHook as hookTestingHarness } from 'react-testing-library'
+import { renderHook, act } from 'react-hooks-testing-library'
 
 import { ReduxBundlerProvider } from '..'
 
@@ -13,7 +13,7 @@ export default function initHookTest(hook, store, ...initialHookArguments) {
     renderCount: 0,
   }
 
-  const { rerender } = hookTestingHarness(
+  const { rerender } = renderHook(
     () => {
       ref.current = hook(...hookArgs)
       ref.renderCount += 1
@@ -24,6 +24,7 @@ export default function initHookTest(hook, store, ...initialHookArguments) {
   return {
     ref,
     store,
+    act,
     rerender: (...nextHookArgs) => {
       hookArgs = nextHookArgs
       rerender()
