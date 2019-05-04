@@ -53,3 +53,5 @@ export default function App() {
   )
 }
 ```
+
+In cases you need a store itself down your component tree, this package also exports `useReduxBundlerStore` hook that will return the store.
