@@ -1,6 +1,6 @@
 {
   "name": "redux-bundler-hook",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React bindings to redux-bundler with hooks",
   "main": "index.js",
   "scripts": {

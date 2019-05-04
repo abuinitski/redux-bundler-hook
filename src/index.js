@@ -1,8 +1,7 @@
 import React from 'react'
 
-import ReduxBundlerContext from './ReduxBundlerContext'
+export { default as ReduxBundlerContext } from './ReduxBundlerContext'
+export { default as ReduxBundlerProvider } from './ReduxBundlerProvider'
 
 export { default as useConnect } from './useConnect'
-
-export const ReduxBundlerProvider = ({ store, children }) =>
-  React.createElement(ReduxBundlerContext.Provider, { value: { store } }, children)
+export { default as useReduxBundlerStore } from './useReduxBundlerStore'
